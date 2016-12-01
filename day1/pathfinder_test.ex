@@ -69,6 +69,7 @@ defmodule Pathfinder do
     |> walk(amount - 1)
   end
 
+  defp check_duplicates(%{duplicate: _duplicate} = heroine), do: heroine
   defp check_duplicates(%{x: x, y: y, history: history} = heroine) do
     case Enum.find(history, fn (coord) -> coord == {x,y} end) do
       nil -> heroine
